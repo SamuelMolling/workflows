@@ -5,9 +5,12 @@ permissions:
  contents: read
 
 on:
- push:
-   branches:
-     - main
+  workflow_call:
+    secrets:
+      AWS_GITHUB_ACTIONS_ROLE:
+        required: true
+      AWS_TARGET_REGION:
+        required: true
 
 jobs:
  deploy:
